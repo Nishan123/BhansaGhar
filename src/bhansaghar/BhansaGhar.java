@@ -8,6 +8,7 @@ package bhansaghar;
  *
  * @author Nishan Giri
  *Sanjeeta Aryal
+ *Ritika Shrestha
  * Sujal Silwal (Git Tester)
  */
 public class BhansaGhar {
