@@ -7,6 +7,7 @@ package bhansaghar;
 /**
  *
  * @author Nishan Giri
+ * Sujal Silwal (Git Tester)
  */
 public class BhansaGhar {
 
