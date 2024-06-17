@@ -5,6 +5,7 @@
 package bhansaghar;
 
 import view.LoginScreen;
+import view.SignUp;
 
 /**
  *
@@ -20,7 +21,8 @@ public class BhansaGhar {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LoginScreen mainFrame = new LoginScreen();
+//        LoginScreen mainFrame = new LoginScreen();
+SignUp mainFrame = new SignUp();
         mainFrame.setVisible(true);
         mainFrame.setSize(1200, 1600);
         mainFrame.setDefaultCloseOperation(LoginScreen.EXIT_ON_CLOSE);
