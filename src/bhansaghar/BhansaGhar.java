@@ -4,6 +4,7 @@
  */
 package bhansaghar;
 
+import view.HomeScreen;
 import view.LoginScreen;
 
 /**
@@ -20,7 +21,9 @@ public class BhansaGhar {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LoginScreen mainFrame = new LoginScreen();
+//        LoginScreen mainFrame = new LoginScreen();
+HomeScreen mainFrame = new HomeScreen();
+
 mainFrame.setVisible(true);
         mainFrame.setDefaultCloseOperation(LoginScreen.EXIT_ON_CLOSE);
       

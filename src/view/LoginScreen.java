@@ -38,9 +38,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
-        setPreferredSize(new java.awt.Dimension(900, 630));
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(270, 600));
@@ -58,6 +56,11 @@ public class LoginScreen extends javax.swing.JFrame {
 
         jButton1.setText("Login");
         jButton1.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         showPassword.setText("Show password");
         showPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +72,11 @@ public class LoginScreen extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(102, 255, 255));
         jButton2.setText("Dont have an account? Signup");
         jButton2.setBorder(null);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -166,6 +174,17 @@ public class LoginScreen extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_showPasswordActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        HomeScreen  homeScreen = new HomeScreen();
+        homeScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments

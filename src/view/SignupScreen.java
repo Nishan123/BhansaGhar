@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Nishan Giri
@@ -29,7 +31,7 @@ public class SignupScreen extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        usernameField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
@@ -40,9 +42,7 @@ public class SignupScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
-        setPreferredSize(new java.awt.Dimension(900, 630));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/text_logo.png"))); // NOI18N
 
@@ -51,7 +51,7 @@ public class SignupScreen extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(70, 30));
+        usernameField.setPreferredSize(new java.awt.Dimension(70, 30));
 
         jLabel2.setText("Username");
 
@@ -61,6 +61,16 @@ public class SignupScreen extends javax.swing.JFrame {
 
         jButton1.setText("Signup");
         jButton1.setPreferredSize(new java.awt.Dimension(90, 30));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         showPassword.setText("Show password");
         showPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +82,11 @@ public class SignupScreen extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(102, 255, 255));
         jButton2.setText("Already have an account? Login");
         jButton2.setBorder(null);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -79,6 +94,11 @@ public class SignupScreen extends javax.swing.JFrame {
         });
 
         confirmPasswordFiled.setPreferredSize(new java.awt.Dimension(90, 30));
+        confirmPasswordFiled.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmPasswordFiledActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Confirm Password");
 
@@ -94,7 +114,7 @@ public class SignupScreen extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGap(70, 70, 70))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(24, 24, 24)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -121,7 +141,7 @@ public class SignupScreen extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,14 +190,41 @@ public class SignupScreen extends javax.swing.JFrame {
 
     private void showPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordActionPerformed
         // TODO add your handling code here:
-        if(showPassword.isSelected()){
-            passwordField.setEchoChar((char)0);
-            confirmPasswordFiled.setEchoChar((char)0);
-        }else{
-             passwordField.setEchoChar('*');
-             confirmPasswordFiled.setEchoChar('*');
+        if (showPassword.isSelected()) {
+            passwordField.setEchoChar((char) 0);
+            confirmPasswordFiled.setEchoChar((char) 0);
+        } else {
+            passwordField.setEchoChar('*');
+            confirmPasswordFiled.setEchoChar('*');
         }
     }//GEN-LAST:event_showPasswordActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void confirmPasswordFiledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFiledActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_confirmPasswordFiledActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        char[] enteredPassword = passwordField.getPassword();
+        char[] confirmPassword = confirmPasswordFiled.getPassword();
+        if (Arrays.equals(enteredPassword, confirmPassword)) {
+            System.out.println(passwordField.getPassword());
+        } else {
+            System.out.println("Password didn't match");
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -207,10 +254,8 @@ public class SignupScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignupScreen().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new SignupScreen().setVisible(true);
         });
     }
 
@@ -224,8 +269,8 @@ public class SignupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JCheckBox showPassword;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
