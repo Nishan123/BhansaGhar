@@ -5,6 +5,9 @@
 package view;
 
 import java.util.Arrays;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -35,18 +38,19 @@ public class SignupScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        signupButton = new javax.swing.JButton();
         showPassword = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
         confirmPasswordFiled = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/text_logo.png"))); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setMinimumSize(new java.awt.Dimension(270, 600));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
@@ -59,16 +63,16 @@ public class SignupScreen extends javax.swing.JFrame {
 
         jLabel3.setText("Password");
 
-        jButton1.setText("Signup");
-        jButton1.setPreferredSize(new java.awt.Dimension(90, 30));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        signupButton.setText("Signup");
+        signupButton.setPreferredSize(new java.awt.Dimension(90, 30));
+        signupButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                signupButtonMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        signupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                signupButtonActionPerformed(evt);
             }
         });
 
@@ -123,7 +127,7 @@ public class SignupScreen extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel3)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(signupButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(passwordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(showPassword)
                                 .addComponent(jLabel5)))
@@ -153,7 +157,7 @@ public class SignupScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(showPassword)
                 .addGap(45, 45, 45)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(signupButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(40, 40, 40))
@@ -172,10 +176,10 @@ public class SignupScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(258, 258, 258)
                 .addComponent(jLabel4)
-                .addGap(230, 230, 230))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,11 +203,11 @@ public class SignupScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_showPasswordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void signupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupButtonActionPerformed
         // TODO add your handling code here:
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_signupButtonActionPerformed
 
     private void confirmPasswordFiledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordFiledActionPerformed
         // TODO add your handling code here:
@@ -211,16 +215,37 @@ public class SignupScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_confirmPasswordFiledActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void signupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupButtonMouseClicked
         char[] enteredPassword = passwordField.getPassword();
         char[] confirmPassword = confirmPasswordFiled.getPassword();
+
         if (Arrays.equals(enteredPassword, confirmPassword)) {
-            System.out.println(passwordField.getPassword());
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+                String query = "INSERT INTO users (username, password, confirmPassword) VALUES (?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, usernameField.getText());
+                ps.setString(2, new String(enteredPassword));
+                ps.setString(3, new String(confirmPassword));
+
+                // Execute the query
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected > 0) {
+             
+                    JOptionPane.showMessageDialog(this, "User Registered Successfully!","Signup Info", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    System.out.println("Error: User registration failed.");
+                }
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+            }
+
         } else {
-            System.out.println("Password didn't match");
+            JOptionPane.showMessageDialog(this, "Password and Confirm password must be same", "Error",JOptionPane.WARNING_MESSAGE);
         }
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_signupButtonMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -261,7 +286,6 @@ public class SignupScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField confirmPasswordFiled;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -271,6 +295,7 @@ public class SignupScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JCheckBox showPassword;
+    private javax.swing.JButton signupButton;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

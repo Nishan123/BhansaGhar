@@ -4,15 +4,14 @@
  */
 package bhansaghar;
 
-import view.HomeScreen;
-import view.LoginScreen;
+import view.SignupScreen;
 
-/**
+/*
  *
- * @author Nishan Giri
+ *@author Nishan Giri
  *Sanjeeta Aryal
  *Ritika Shrestha
- * Sujal Silwal (Git Tester)
+ *Sujal Silwal (Git Tester)
  */
 public class BhansaGhar {
 
@@ -21,11 +20,11 @@ public class BhansaGhar {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        LoginScreen mainFrame = new LoginScreen();
-HomeScreen mainFrame = new HomeScreen();
+        SignupScreen mainFrame = new SignupScreen();
+
 
 mainFrame.setVisible(true);
-        mainFrame.setDefaultCloseOperation(LoginScreen.EXIT_ON_CLOSE);
+        mainFrame.setDefaultCloseOperation(SignupScreen.EXIT_ON_CLOSE);
       
     }
     
