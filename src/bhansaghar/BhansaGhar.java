@@ -4,6 +4,7 @@
  */
 package bhansaghar;
 
+import view.BillingScreen;
 import view.OrdersScreen;
 import view.SignupScreen;
 import view.TableScreen;
@@ -22,7 +23,7 @@ public class BhansaGhar {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        TableScreen mainFrame = new TableScreen();
+        BillingScreen mainFrame = new BillingScreen();
 //        SignupScreen mainFrame = new SignupScreen();
 
 

@@ -4,6 +4,18 @@
  */
 package view;
 
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Nishan Giri
@@ -26,9 +38,34 @@ public class BillingScreen extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        oidField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        oidLabel = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        totalLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        billingTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        calculateTotalButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        addItemButton = new javax.swing.JButton();
+        itemNameField = new javax.swing.JTextField();
+        priceField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(900, 630));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(230, 630));
@@ -138,18 +175,107 @@ public class BillingScreen extends javax.swing.JFrame {
                 .addContainerGap(204, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 670, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.add(oidField, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 175, -1));
+
+        jLabel1.setText("Order ID :");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 20));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Bhansa Ghar---Your Receipt", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setText("Name:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 40, 37, -1));
+
+        nameLabel.setText("XXXXX");
+        jPanel2.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 40, 104, -1));
+
+        jLabel5.setText("Order Id:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 62, -1, -1));
+
+        oidLabel.setText("XXXXX");
+        jPanel2.add(oidLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 62, 103, -1));
+
+        jLabel7.setText("Date:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 40, 37, -1));
+
+        dateLabel.setText("XXX");
+        jPanel2.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 40, 80, -1));
+
+        jLabel9.setText("Total:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 432, 37, -1));
+
+        totalLabel.setText("XXX");
+        jPanel2.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 432, 43, -1));
+
+        billingTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Item name", "Price"
+            }
+        ));
+        jScrollPane1.setViewportView(billingTable);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 80, 330, 340));
+
+        jButton1.setText("Save receipt");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, -1));
+
+        calculateTotalButton.setText("Calculate Total");
+        calculateTotalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateTotalButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(calculateTotalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
+
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 350, 480));
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
+
+        addItemButton.setText("Add Item");
+        addItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addItemButtonActionPerformed(evt);
+            }
+        });
+        jPanel4.add(addItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, -1));
+        jPanel4.add(itemNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 230, -1));
+
+        priceField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceFieldActionPerformed(evt);
+            }
+        });
+        jPanel4.add(priceField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 230, -1));
+
+        jLabel4.setText("Price");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLabel6.setText("Item Name");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setText("Adding additional items");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 650, 530));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("Billing and Payment");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,6 +323,80 @@ public class BillingScreen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        String orderID = oidField.getText();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+            String query = "SELECT itemName, totalAmount, orderBy FROM orders WHERE oId=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, orderID);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String itemName = rs.getString("itemName");
+                int priceValue = rs.getInt("totalAmount");
+                String orderByValue = rs.getString("orderBy");
+
+                // Assuming you have a DefaultTableModel associated with billingTable
+                DefaultTableModel tableModel = (DefaultTableModel) billingTable.getModel();
+                tableModel.addRow(new Object[]{itemName, priceValue});
+
+                // Update other labels (nameLabel, oidLabel, dateLabel) as needed
+                nameLabel.setText(orderByValue);
+                oidLabel.setText(oidField.getText());
+                SwingUtilities.invokeLater(() -> {
+                    dateLabel.setText("" + LocalDate.now()); // Replace with your desired text
+                });
+            } else {
+                // Handle the case where no result is found for the given oId
+                JOptionPane.showMessageDialog(null, "Order ID didn't match!", "Billing Info", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        oidField.setText(""); // Clear the oidField
+        // Clear the oidField
+
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void addItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addItemButtonActionPerformed
+        // TODO add your handling code here:
+        if (itemNameField.getText().equals("") || priceField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "No field cannot be empty!", "Billing info", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            double priceValue = Double.parseDouble(priceField.getText());
+
+            Object[] data = {itemNameField.getText(),priceValue};
+            DefaultTableModel tableModel = (DefaultTableModel) billingTable.getModel();
+            tableModel.insertRow(0, data);
+        }
+    }//GEN-LAST:event_addItemButtonActionPerformed
+
+    private void priceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceFieldActionPerformed
+
+    private void calculateTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTotalButtonActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tableModel = (DefaultTableModel) billingTable.getModel();
+        int priceColumnIndex = tableModel.findColumn("Price"); // Adjust column name as needed
+
+        double totalSum = 0.0;
+        for (int row = 0; row < tableModel.getRowCount(); row++) {
+            Object value = tableModel.getValueAt(row, priceColumnIndex);
+            if (value instanceof Number number) {
+                totalSum += number.doubleValue();
+            }
+        }
+
+        totalLabel.setText("NPR "+totalSum);
+
+
+    }//GEN-LAST:event_calculateTotalButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,13 +431,37 @@ public class BillingScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addItemButton;
+    public javax.swing.JTable billingTable;
+    private javax.swing.JButton calculateTotalButton;
+    private javax.swing.JLabel dateLabel;
+    private javax.swing.JTextField itemNameField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField oidField;
+    private javax.swing.JLabel oidLabel;
+    private javax.swing.JTextField priceField;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
