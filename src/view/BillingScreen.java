@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +33,6 @@ public class BillingScreen extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
@@ -111,15 +109,6 @@ public class BillingScreen extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Staff.png"))); // NOI18N
-        jButton5.setText("Employees");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-
         jButton6.setBackground(new java.awt.Color(204, 255, 255));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Paycheque.png"))); // NOI18N
         jButton6.setText("Billing");
@@ -146,7 +135,6 @@ public class BillingScreen extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -167,12 +155,10 @@ public class BillingScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -207,10 +193,10 @@ public class BillingScreen extends javax.swing.JFrame {
         jPanel2.add(dateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 40, 80, -1));
 
         jLabel9.setText("Total:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 432, 37, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 37, -1));
 
         totalLabel.setText("XXX");
-        jPanel2.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 432, 43, -1));
+        jPanel2.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 43, -1));
 
         billingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,10 +208,16 @@ public class BillingScreen extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(billingTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 80, 330, 340));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 80, 330, 310));
 
-        jButton1.setText("Save receipt");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, -1));
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/fonepay.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, -1, 40));
 
         calculateTotalButton.setText("Calculate Total");
         calculateTotalButton.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +225,7 @@ public class BillingScreen extends javax.swing.JFrame {
                 calculateTotalButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(calculateTotalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
+        jPanel2.add(calculateTotalButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, -1));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 350, 480));
 
@@ -308,13 +300,6 @@ public class BillingScreen extends javax.swing.JFrame {
         tableScreen.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-        EmployeesScreen employeesScreen = new EmployeesScreen();
-        employeesScreen.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
@@ -397,6 +382,13 @@ public class BillingScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_calculateTotalButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PaymentOptions qrScreen = new PaymentOptions();
+        qrScreen.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -440,7 +432,6 @@ public class BillingScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;

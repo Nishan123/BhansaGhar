@@ -53,7 +53,6 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jButton7" alignment="1" pref="210" max="32767" attributes="0"/>
                               <Component id="jButton6" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jButton5" alignment="1" pref="210" max="32767" attributes="0"/>
                               <Component id="jButton4" alignment="1" max="32767" attributes="0"/>
                               <Component id="jButton3" alignment="1" max="32767" attributes="0"/>
                               <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
@@ -80,12 +79,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton6" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton7" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace pref="204" max="32767" attributes="0"/>
+                  <EmptySpace pref="240" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,20 +142,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/images/Staff.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Employees"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton5MouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton6">
@@ -322,7 +305,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="11" y="432" width="37" height="-1"/>
+                  <AbsoluteConstraints x="10" y="400" width="37" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -332,7 +315,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="54" y="432" width="43" height="-1"/>
+                  <AbsoluteConstraints x="50" y="400" width="43" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -342,7 +325,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="12" y="80" width="330" height="340"/>
+                  <AbsoluteConstraints x="12" y="80" width="330" height="310"/>
                 </Constraint>
               </Constraints>
 
@@ -382,11 +365,19 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Save receipt"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="cc" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/assets/images/fonepay.png"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="240" y="430" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="220" y="420" width="-1" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -399,7 +390,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="110" y="430" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="10" y="430" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
