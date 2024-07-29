@@ -4,7 +4,9 @@
  */
 package bhansaghar;
 
+import view.OrdersScreen;
 import view.SignupScreen;
+import view.TableScreen;
 
 /*
  *
@@ -20,7 +22,8 @@ public class BhansaGhar {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SignupScreen mainFrame = new SignupScreen();
+        TableScreen mainFrame = new TableScreen();
+//        SignupScreen mainFrame = new SignupScreen();
 
 
 mainFrame.setVisible(true);

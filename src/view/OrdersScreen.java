@@ -4,6 +4,14 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.*;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Nishan Giri
@@ -34,13 +42,36 @@ public class OrdersScreen extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ordersTable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        quantityField = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
+        totalAmountField = new javax.swing.JTextField();
+        orderByField = new javax.swing.JTextField();
+        addOrderButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        itemNameField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        loadDataButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        removeOrderButton = new javax.swing.JButton();
+        oidField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(900, 630));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(230, 630));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Qr Code.png"))); // NOI18N
@@ -56,6 +87,7 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 216, 210, -1));
 
         jButton3.setBackground(new java.awt.Color(204, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Salami Pizza.png"))); // NOI18N
@@ -68,6 +100,7 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 252, 210, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Tablecloth.png"))); // NOI18N
@@ -77,6 +110,7 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton4MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 288, 210, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Staff.png"))); // NOI18N
@@ -86,6 +120,7 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton5MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 324, 210, -1));
 
         jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Paycheque.png"))); // NOI18N
@@ -95,6 +130,7 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton6MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 360, 210, 30));
 
         jButton7.setBackground(new java.awt.Color(204, 204, 204));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Engineering.png"))); // NOI18N
@@ -104,69 +140,105 @@ public class OrdersScreen extends javax.swing.JFrame {
                 jButton7MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 396, 210, -1));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
+        jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 60, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(logo)))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(logo)
-                .addGap(37, 37, 37)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel1.setText("Orders");
+        ordersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(315, 315, 315))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+            },
+            new String [] {
+                "Order ID", "Item name", "Order by", "Phone", "Quantity", "Total amount"
+            }
+        ));
+        jScrollPane2.setViewportView(ordersTable);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 640, 320));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(quantityField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 160, 20));
+        jPanel2.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 160, 20));
+        jPanel2.add(totalAmountField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 160, 20));
+        jPanel2.add(orderByField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 160, 20));
+
+        addOrderButton.setBackground(new java.awt.Color(204, 255, 255));
+        addOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Add.png"))); // NOI18N
+        addOrderButton.setText("Add Order");
+        addOrderButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addOrderButtonMouseClicked(evt);
+            }
+        });
+        addOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOrderButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+
+        jLabel3.setText("Order By :");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
+
+        jLabel4.setText("Phone :");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
+
+        jLabel5.setText("Total amount:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 20));
+
+        jLabel7.setText("Quantity :");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
+        jPanel2.add(itemNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 160, 20));
+
+        jLabel9.setText("Item Name :");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 20));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 380, 170));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("Orders List");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Remove Order");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+
+        loadDataButton.setText("Load Data");
+        loadDataButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loadDataButtonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(loadDataButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 40, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        removeOrderButton.setBackground(new java.awt.Color(255, 153, 153));
+        removeOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Minus.png"))); // NOI18N
+        removeOrderButton.setText("Remove Orders");
+        removeOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeOrderButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(removeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        jPanel3.add(oidField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 160, 20));
+
+        jLabel6.setText("Order ID :");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, 20));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 250, 170));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setText("Add Order");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,9 +252,9 @@ public class OrdersScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-MenuScreen homeScreen = new MenuScreen();
-homeScreen.setVisible(true);
-this.dispose();
+        MenuScreen menuScreen = new MenuScreen();
+        menuScreen.setVisible(true);
+        this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -191,7 +263,7 @@ this.dispose();
         TableScreen tableScreen = new TableScreen();
         tableScreen.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -214,6 +286,137 @@ this.dispose();
         settingScreen.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void removeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeOrderButtonActionPerformed
+        String orderID = oidField.getText();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+            String query = "DELETE FROM orders WHERE oID=?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, orderID);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                // Order successfully removed from the database
+                JOptionPane.showMessageDialog(null, "Order Removed!", "Order Info", JOptionPane.INFORMATION_MESSAGE);
+
+                // Now update the JTable to reflect the change
+                DefaultTableModel tableModel = (DefaultTableModel) ordersTable.getModel();
+                for (int i = 0; i < tableModel.getRowCount(); i++) {
+                    String existingOrderID = tableModel.getValueAt(i, 0).toString();
+                    if (existingOrderID.equals(orderID)) {
+                        tableModel.removeRow(i);
+                        break; 
+                    }
+                }
+            } else {
+                // Order ID didn't match any records in the database
+                JOptionPane.showMessageDialog(null, "Order ID didn't match!", "Order Info", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        oidField.setText("");
+
+
+    }//GEN-LAST:event_removeOrderButtonActionPerformed
+
+    private void addOrderButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addOrderButtonMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_addOrderButtonMouseClicked
+    public String generateOrderID() {
+        long timestamp = System.currentTimeMillis();
+        int randomSuffix = (int) (Math.random() * 100); // Generate a random number between 0 and 999
+        return "0" + timestamp + randomSuffix;
+    }
+    private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
+        // TODO add your handling code here:
+
+        if (orderByField.getText().equals("") || phoneField.getText().equals("") || quantityField.getText().equals("") || totalAmountField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Must enter all field!", "Field Empty !", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            String oId = generateOrderID();
+            String orderData[] = {oId, itemNameField.getText(), orderByField.getText(), phoneField.getText(), quantityField.getText(), totalAmountField.getText()};
+
+            DefaultTableModel tableModel = (DefaultTableModel) ordersTable.getModel();
+            tableModel.insertRow(0, orderData);
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+                String query = "INSERT INTO orders (oId, itemName, orderBy, phone, quantity, totalAmount) VALUES (?, ?, ?, ?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, oId);
+                ps.setString(2, itemNameField.getText());
+                ps.setString(3, orderByField.getText());
+                ps.setString(4, phoneField.getText());
+                ps.setString(5, quantityField.getText());
+                ps.setString(6, totalAmountField.getText());
+
+                // Execute the query
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected > 0) {
+
+                    JOptionPane.showMessageDialog(this, "Order added", "Order Info", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    System.out.println("Error: Order registration failed.");
+                }
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+            }
+            itemNameField.setText("");
+            orderByField.setText("");
+            phoneField.setText("");
+            quantityField.setText("");
+            totalAmountField.setText("");
+        }
+
+    }//GEN-LAST:event_addOrderButtonActionPerformed
+
+    private void loadDataButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loadDataButtonMouseClicked
+        // TODO add your handling code here:
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+            Statement st = conn.createStatement();
+            String query = "SELECT * FROM orders";
+            ResultSet rs = st.executeQuery(query);
+
+            DefaultTableModel tableModel = (DefaultTableModel) ordersTable.getModel();
+            boolean tableAlreadyLoaded = !tableModel.getDataVector().isEmpty(); // Check if the table is already loaded
+
+            if (tableAlreadyLoaded) {
+                // Display a message box indicating that the table is already loaded
+                JOptionPane.showMessageDialog(null, "Table is already loaded.", "Info", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                // Clear existing data (if any)
+                tableModel.setRowCount(0);
+
+                // Populate the table model
+                while (rs.next()) {
+                    String oid = rs.getString("oId");
+                    String itemname = rs.getString("itemName");
+                    String orderby = rs.getString("orderBy");
+                    String phone = String.valueOf(rs.getLong("phone"));
+                    String quantity = String.valueOf(rs.getInt("quantity"));
+                    String totalamount = String.valueOf(rs.getInt("totalAmount"));
+
+                    String ordersData[] = {oid, itemname, orderby, phone, quantity, totalamount};
+                    tableModel.addRow(ordersData);
+                }
+
+                // Display a message box indicating successful data load
+                JOptionPane.showMessageDialog(null, "Data loaded successfully!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }//GEN-LAST:event_loadDataButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -249,6 +452,8 @@ this.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addOrderButton;
+    private javax.swing.JTextField itemNameField;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -256,7 +461,26 @@ this.dispose();
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton loadDataButton;
     private javax.swing.JLabel logo;
+    private javax.swing.JTextField oidField;
+    private javax.swing.JTextField orderByField;
+    private javax.swing.JTable ordersTable;
+    private javax.swing.JTextField phoneField;
+    private javax.swing.JTextField quantityField;
+    private javax.swing.JButton removeOrderButton;
+    private javax.swing.JTextField totalAmountField;
     // End of variables declaration//GEN-END:variables
 }

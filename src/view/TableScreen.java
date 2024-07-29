@@ -4,6 +4,8 @@
  */
 package view;
 
+import java.awt.Color;
+
 /**
  *
  * @author Nishan Giri
@@ -34,10 +36,57 @@ public class TableScreen extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
+        tableWidget = new javax.swing.JPanel();
+        isReservedCheckBox = new javax.swing.JCheckBox();
+        tableState = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        clearStateButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tableWidget1 = new javax.swing.JPanel();
+        isReservedCheckBox1 = new javax.swing.JCheckBox();
+        tableState1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        clearStateButton1 = new javax.swing.JButton();
+        tableWidget2 = new javax.swing.JPanel();
+        isReservedCheckBox2 = new javax.swing.JCheckBox();
+        tableState2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        clearStateButton2 = new javax.swing.JButton();
+        tableWidget3 = new javax.swing.JPanel();
+        isReservedCheckBox3 = new javax.swing.JCheckBox();
+        tableState3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        clearStateButton3 = new javax.swing.JButton();
+        tableWidget4 = new javax.swing.JPanel();
+        isReservedCheckBox4 = new javax.swing.JCheckBox();
+        tableState4 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        clearStateButton4 = new javax.swing.JButton();
+        tableWidget5 = new javax.swing.JPanel();
+        isReservedCheckBox5 = new javax.swing.JCheckBox();
+        tableState5 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        clearStateButton5 = new javax.swing.JButton();
+        tableWidget6 = new javax.swing.JPanel();
+        isReservedCheckBox6 = new javax.swing.JCheckBox();
+        tableState6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        clearStateButton6 = new javax.swing.JButton();
+        tableWidget7 = new javax.swing.JPanel();
+        isReservedCheckBox7 = new javax.swing.JCheckBox();
+        tableState7 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        clearStateButton7 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(900, 630));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(230, 630));
@@ -116,7 +165,7 @@ public class TableScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -147,26 +196,474 @@ public class TableScreen extends javax.swing.JFrame {
                 .addContainerGap(204, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Table Screen");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(295, 295, 295))
+        tableWidget.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox.setText("Reserve Table");
+        isReservedCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBoxActionPerformed(evt);
+            }
+        });
+
+        tableState.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState.setText("U");
+
+        jLabel2.setText("Table No 101");
+
+        clearStateButton.setText("Clear State");
+        clearStateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidgetLayout = new javax.swing.GroupLayout(tableWidget);
+        tableWidget.setLayout(tableWidgetLayout);
+        tableWidgetLayout.setHorizontalGroup(
+            tableWidgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidgetLayout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(tableWidgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel2)
+                    .addComponent(isReservedCheckBox)
+                    .addComponent(clearStateButton))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(tableWidgetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1)
+        tableWidgetLayout.setVerticalGroup(
+            tableWidgetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidgetLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        getContentPane().add(tableWidget, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 210));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("U");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, -1, -1));
+
+        jLabel3.setText("Untracked");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 102));
+        jLabel4.setText("R");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, -1, -1));
+
+        jLabel5.setText("Reserved");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 30, -1, -1));
+
+        jLabel6.setText("Available");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 30, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 255, 51));
+        jLabel7.setText("A");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
+
+        tableWidget1.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox1.setText("Reserve Table");
+        isReservedCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        tableState1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState1.setText("U");
+
+        jLabel8.setText("Table No 102");
+
+        clearStateButton1.setText("Clear State");
+        clearStateButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget1Layout = new javax.swing.GroupLayout(tableWidget1);
+        tableWidget1.setLayout(tableWidget1Layout);
+        tableWidget1Layout.setHorizontalGroup(
+            tableWidget1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget1Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addGroup(tableWidget1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel8)
+                    .addComponent(isReservedCheckBox1)
+                    .addComponent(clearStateButton1))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(tableWidget1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget1Layout.setVerticalGroup(
+            tableWidget1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, 210));
+
+        tableWidget2.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox2.setText("Reserve Table");
+        isReservedCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        tableState2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState2.setText("U");
+
+        jLabel9.setText("Table No 103");
+
+        clearStateButton2.setText("Clear State");
+        clearStateButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget2Layout = new javax.swing.GroupLayout(tableWidget2);
+        tableWidget2.setLayout(tableWidget2Layout);
+        tableWidget2Layout.setHorizontalGroup(
+            tableWidget2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget2Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addGroup(tableWidget2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel9)
+                    .addComponent(isReservedCheckBox2)
+                    .addComponent(clearStateButton2))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(tableWidget2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget2Layout.setVerticalGroup(
+            tableWidget2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, -1, 210));
+
+        tableWidget3.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox3.setText("Reserve Table");
+        isReservedCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        tableState3.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState3.setText("U");
+
+        jLabel10.setText("Table No 104");
+
+        clearStateButton3.setText("Clear State");
+        clearStateButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget3Layout = new javax.swing.GroupLayout(tableWidget3);
+        tableWidget3.setLayout(tableWidget3Layout);
+        tableWidget3Layout.setHorizontalGroup(
+            tableWidget3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget3Layout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(tableWidget3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel10)
+                    .addComponent(isReservedCheckBox3)
+                    .addComponent(clearStateButton3))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(tableWidget3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget3Layout.setVerticalGroup(
+            tableWidget3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, -1, 210));
+
+        tableWidget4.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox4.setText("Reserve Table");
+        isReservedCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox4ActionPerformed(evt);
+            }
+        });
+
+        tableState4.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState4.setText("U");
+
+        jLabel11.setText("Table No 105");
+
+        clearStateButton4.setText("Clear State");
+        clearStateButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget4Layout = new javax.swing.GroupLayout(tableWidget4);
+        tableWidget4.setLayout(tableWidget4Layout);
+        tableWidget4Layout.setHorizontalGroup(
+            tableWidget4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget4Layout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(tableWidget4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel11)
+                    .addComponent(isReservedCheckBox4)
+                    .addComponent(clearStateButton4))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(tableWidget4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget4Layout.setVerticalGroup(
+            tableWidget4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, 210));
+
+        tableWidget5.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox5.setText("Reserve Table");
+        isReservedCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox5ActionPerformed(evt);
+            }
+        });
+
+        tableState5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState5.setText("U");
+
+        jLabel12.setText("Table No 106");
+
+        clearStateButton5.setText("Clear State");
+        clearStateButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget5Layout = new javax.swing.GroupLayout(tableWidget5);
+        tableWidget5.setLayout(tableWidget5Layout);
+        tableWidget5Layout.setHorizontalGroup(
+            tableWidget5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget5Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addGroup(tableWidget5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel12)
+                    .addComponent(isReservedCheckBox5)
+                    .addComponent(clearStateButton5))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(tableWidget5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget5Layout.setVerticalGroup(
+            tableWidget5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, 210));
+
+        tableWidget6.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox6.setText("Reserve Table");
+        isReservedCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox6ActionPerformed(evt);
+            }
+        });
+
+        tableState6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState6.setText("U");
+
+        jLabel13.setText("Table No 107");
+
+        clearStateButton6.setText("Clear State");
+        clearStateButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget6Layout = new javax.swing.GroupLayout(tableWidget6);
+        tableWidget6.setLayout(tableWidget6Layout);
+        tableWidget6Layout.setHorizontalGroup(
+            tableWidget6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget6Layout.createSequentialGroup()
+                .addGap(0, 24, Short.MAX_VALUE)
+                .addGroup(tableWidget6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel13)
+                    .addComponent(isReservedCheckBox6)
+                    .addComponent(clearStateButton6))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(tableWidget6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget6Layout.setVerticalGroup(
+            tableWidget6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, 210));
+
+        tableWidget7.setBackground(new java.awt.Color(255, 255, 255));
+        tableWidget7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+
+        isReservedCheckBox7.setText("Reserve Table");
+        isReservedCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isReservedCheckBox7ActionPerformed(evt);
+            }
+        });
+
+        tableState7.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        tableState7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tableState7.setText("U");
+
+        jLabel14.setText("Table No 108");
+
+        clearStateButton7.setText("Clear State");
+        clearStateButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearStateButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tableWidget7Layout = new javax.swing.GroupLayout(tableWidget7);
+        tableWidget7.setLayout(tableWidget7Layout);
+        tableWidget7Layout.setHorizontalGroup(
+            tableWidget7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableWidget7Layout.createSequentialGroup()
+                .addGap(0, 21, Short.MAX_VALUE)
+                .addGroup(tableWidget7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel14)
+                    .addComponent(isReservedCheckBox7)
+                    .addComponent(clearStateButton7))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(tableWidget7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableState7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tableWidget7Layout.setVerticalGroup(
+            tableWidget7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tableWidget7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableState7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(isReservedCheckBox7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(clearStateButton7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(tableWidget7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, 210));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel15.setText("Tables Management");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,7 +681,7 @@ public class TableScreen extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -214,6 +711,159 @@ public class TableScreen extends javax.swing.JFrame {
         settingScreen.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void clearStateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButtonActionPerformed
+        // TODO add your handling code here:
+        tableWidget.setBackground(Color.decode("#FFFFFF"));
+        tableState.setText("U");
+    }//GEN-LAST:event_clearStateButtonActionPerformed
+
+    private void isReservedCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox.isSelected()) {
+            System.out.println("Selected");
+            tableWidget.setBackground(Color.RED);
+            tableState.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget.setBackground(Color.GREEN);
+            tableState.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBoxActionPerformed
+
+    private void isReservedCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox1.isSelected()) {
+            System.out.println("Selected");
+            tableWidget1.setBackground(Color.RED);
+            tableState1.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget1.setBackground(Color.GREEN);
+            tableState1.setText("A");
+        }
+
+    }//GEN-LAST:event_isReservedCheckBox1ActionPerformed
+
+    private void clearStateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton1ActionPerformed
+        // TODO add your handling code here:
+        tableWidget1.setBackground(Color.decode("#FFFFFF"));
+        tableState1.setText("U");
+    }//GEN-LAST:event_clearStateButton1ActionPerformed
+
+    private void isReservedCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox2ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox2.isSelected()) {
+            System.out.println("Selected");
+            tableWidget2.setBackground(Color.RED);
+            tableState2.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget2.setBackground(Color.GREEN);
+            tableState2.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox2ActionPerformed
+
+    private void clearStateButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton2ActionPerformed
+        // TODO add your handling code here:
+        tableWidget2.setBackground(Color.decode("#FFFFFF"));
+        tableState2.setText("U");
+    }//GEN-LAST:event_clearStateButton2ActionPerformed
+
+    private void isReservedCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox3.isSelected()) {
+            System.out.println("Selected");
+            tableWidget3.setBackground(Color.RED);
+            tableState3.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget3.setBackground(Color.GREEN);
+            tableState3.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox3ActionPerformed
+
+    private void clearStateButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton3ActionPerformed
+        // TODO add your handling code here:
+        tableWidget3.setBackground(Color.decode("#FFFFFF"));
+        tableState3.setText("U");
+    }//GEN-LAST:event_clearStateButton3ActionPerformed
+
+    private void isReservedCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox4ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox4.isSelected()) {
+            System.out.println("Selected");
+            tableWidget4.setBackground(Color.RED);
+            tableState4.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget4.setBackground(Color.GREEN);
+            tableState4.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox4ActionPerformed
+
+    private void clearStateButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton4ActionPerformed
+        // TODO add your handling code here:
+        tableWidget4.setBackground(Color.decode("#FFFFFF"));
+        tableState4.setText("U");
+    }//GEN-LAST:event_clearStateButton4ActionPerformed
+
+    private void isReservedCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox5ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox5.isSelected()) {
+            System.out.println("Selected");
+            tableWidget5.setBackground(Color.RED);
+            tableState5.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget5.setBackground(Color.GREEN);
+            tableState5.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox5ActionPerformed
+
+    private void clearStateButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton5ActionPerformed
+        // TODO add your handling code here:
+        tableWidget5.setBackground(Color.decode("#FFFFFF"));
+        tableState5.setText("U");
+    }//GEN-LAST:event_clearStateButton5ActionPerformed
+
+    private void isReservedCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox6ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox6.isSelected()) {
+            System.out.println("Selected");
+            tableWidget6.setBackground(Color.RED);
+            tableState6.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget6.setBackground(Color.GREEN);
+            tableState6.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox6ActionPerformed
+
+    private void clearStateButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton6ActionPerformed
+        // TODO add your handling code here:
+        tableWidget6.setBackground(Color.decode("#FFFFFF"));
+        tableState6.setText("U");
+    }//GEN-LAST:event_clearStateButton6ActionPerformed
+
+    private void isReservedCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isReservedCheckBox7ActionPerformed
+        // TODO add your handling code here:
+        if (isReservedCheckBox7.isSelected()) {
+            System.out.println("Selected");
+            tableWidget7.setBackground(Color.RED);
+            tableState7.setText("R");
+        } else {
+            System.out.println("Not selected");
+            tableWidget7.setBackground(Color.GREEN);
+            tableState7.setText("A");
+        }
+    }//GEN-LAST:event_isReservedCheckBox7ActionPerformed
+
+    private void clearStateButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearStateButton7ActionPerformed
+        // TODO add your handling code here:
+        tableWidget7.setBackground(Color.decode("#FFFFFF"));
+        tableState7.setText("U");
+    }//GEN-LAST:event_clearStateButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +899,22 @@ public class TableScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearStateButton;
+    private javax.swing.JButton clearStateButton1;
+    private javax.swing.JButton clearStateButton2;
+    private javax.swing.JButton clearStateButton3;
+    private javax.swing.JButton clearStateButton4;
+    private javax.swing.JButton clearStateButton5;
+    private javax.swing.JButton clearStateButton6;
+    private javax.swing.JButton clearStateButton7;
+    private javax.swing.JCheckBox isReservedCheckBox;
+    private javax.swing.JCheckBox isReservedCheckBox1;
+    private javax.swing.JCheckBox isReservedCheckBox2;
+    private javax.swing.JCheckBox isReservedCheckBox3;
+    private javax.swing.JCheckBox isReservedCheckBox4;
+    private javax.swing.JCheckBox isReservedCheckBox5;
+    private javax.swing.JCheckBox isReservedCheckBox6;
+    private javax.swing.JCheckBox isReservedCheckBox7;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -256,7 +922,37 @@ public class TableScreen extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo;
+    public javax.swing.JLabel tableState;
+    public javax.swing.JLabel tableState1;
+    public javax.swing.JLabel tableState2;
+    public javax.swing.JLabel tableState3;
+    public javax.swing.JLabel tableState4;
+    public javax.swing.JLabel tableState5;
+    public javax.swing.JLabel tableState6;
+    public javax.swing.JLabel tableState7;
+    public javax.swing.JPanel tableWidget;
+    public javax.swing.JPanel tableWidget1;
+    public javax.swing.JPanel tableWidget2;
+    public javax.swing.JPanel tableWidget3;
+    public javax.swing.JPanel tableWidget4;
+    public javax.swing.JPanel tableWidget5;
+    public javax.swing.JPanel tableWidget6;
+    public javax.swing.JPanel tableWidget7;
     // End of variables declaration//GEN-END:variables
 }
