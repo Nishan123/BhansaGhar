@@ -1,9 +1,8 @@
-package view;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package view;
 
 import java.io.File;
 import java.sql.Connection;
@@ -13,16 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import view.BillingScreen;
-import view.MenuScreen;
-import view.OrdersScreen;
-import view.TableScreen;
 
 /**
  *
  * @author Nishan Giri
  */
-
 public class SettingScreen extends javax.swing.JFrame {
 
     /**
@@ -49,34 +43,35 @@ public class SettingScreen extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        hotelNameField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        uploadQrMenuButton = new javax.swing.JButton();
-        uploadMenueButton = new javax.swing.JButton();
+        uploadMenuQrButton = new javax.swing.JButton();
+        uploadMenuImageButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        changePhonePayQrButton = new javax.swing.JButton();
+        uploadPaymentQrButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        usernameField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        oldPasswordField = new javax.swing.JTextField();
         newPasswordField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        saveChangesButton = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        usernameField = new javax.swing.JTextField();
+        oldPasswordField = new javax.swing.JTextField();
+        saveChangesButton = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 680));
+        setPreferredSize(new java.awt.Dimension(900, 680));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -135,6 +130,11 @@ public class SettingScreen extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(204, 255, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Engineering.png"))); // NOI18N
         jButton7.setText("Settings");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
 
@@ -160,9 +160,9 @@ public class SettingScreen extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(69, 69, 69)
                 .addComponent(logo)
-                .addGap(33, 33, 33)
+                .addGap(28, 28, 28)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,157 +178,127 @@ public class SettingScreen extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Menue Options"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Menu Options"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(hotelNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 189, 30));
 
-        jLabel1.setText("Hotel/Cafe name");
+        jLabel1.setText("Hotel / Cafe Name :");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 27, -1, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 24, 162, 30));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jButton1.setBackground(new java.awt.Color(102, 102, 255));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Save Changes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 290, 30));
+
+        uploadMenuQrButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Qr Code.png"))); // NOI18N
+        uploadMenuQrButton.setText("Upload Menu QR");
+        uploadMenuQrButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                uploadMenuQrButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 290, -1));
+        jPanel2.add(uploadMenuQrButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 290, 60));
 
-        uploadQrMenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Qr Code.png"))); // NOI18N
-        uploadQrMenuButton.setText("Upload QR Menue");
-        uploadQrMenuButton.addActionListener(new java.awt.event.ActionListener() {
+        uploadMenuImageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/menu.png"))); // NOI18N
+        uploadMenuImageButton.setText("Upload Menu Image");
+        uploadMenuImageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uploadQrMenuButtonActionPerformed(evt);
+                uploadMenuImageButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(uploadQrMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 290, 50));
+        jPanel2.add(uploadMenuImageButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 290, 60));
 
-        uploadMenueButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/menu.png"))); // NOI18N
-        uploadMenueButton.setText("Upload Menue");
-        uploadMenueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uploadMenueButtonActionPerformed(evt);
-            }
-        });
-        jPanel2.add(uploadMenueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 290, 50));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 310, 240));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 310, 250));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Billing Options"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Payment Options"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        changePhonePayQrButton.setText("Upload payment QR");
-        changePhonePayQrButton.addActionListener(new java.awt.event.ActionListener() {
+        uploadPaymentQrButton.setText("Upload Paymnet QR");
+        uploadPaymentQrButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changePhonePayQrButtonActionPerformed(evt);
+                uploadPaymentQrButtonActionPerformed(evt);
             }
         });
+        jPanel3.add(uploadPaymentQrButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 280, 60));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Software will not be responsibel for any wrong QR uploaded");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel2.setText("Change your payment QR from here.");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 24, -1, -1));
 
-        jLabel3.setText("⚠ ️Warning ⚠️");
+        jLabel3.setText("⚠ ️WARNING ⚠️");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 120, -1));
 
-        jLabel4.setText("Change your payment Qr from here.");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel4.setText("Software will not be responsible for wrong QR upload");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                            .addComponent(changePhonePayQrButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(changePhonePayQrButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 320, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 300, 250));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "System Setting\n"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "System Options"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setText("Change your password");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, -1));
+
+        jLabel6.setText("New password");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jPanel4.add(newPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 250, 35));
+
+        jLabel7.setText("Username");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel8.setText("Old password");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jButton5.setBackground(new java.awt.Color(255, 51, 153));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Logout.png"))); // NOI18N
-        jButton5.setText("Logout");
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 270, 38));
+        jButton5.setText("Log out");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 250, 47));
 
-        jLabel5.setText("Username");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 84, -1, -1));
-        jPanel4.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 106, 272, 36));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("For software support :");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
-        jLabel6.setText("Old Password");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 154, -1, -1));
-        jPanel4.add(oldPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 176, 272, 36));
-        jPanel4.add(newPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 246, 272, 36));
+        jLabel10.setText("9819320395");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
 
-        jLabel7.setText("New Password");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 224, -1, -1));
+        jLabel11.setText("girinishan200@gmail.com");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 180, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setText("Change your password from here.");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jButton9.setText("Legal information and documentation");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 250, -1));
+        jPanel4.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 82, 250, 35));
+        jPanel4.add(oldPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 250, 35));
 
-        saveChangesButton.setBackground(new java.awt.Color(102, 204, 255));
+        saveChangesButton.setBackground(new java.awt.Color(102, 102, 255));
         saveChangesButton.setForeground(new java.awt.Color(255, 255, 255));
         saveChangesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/save icon.png"))); // NOI18N
         saveChangesButton.setText("Save Changes");
-        saveChangesButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saveChangesButtonMouseClicked(evt);
-            }
-        });
         saveChangesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveChangesButtonActionPerformed(evt);
             }
         });
-        jPanel4.add(saveChangesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 300, 272, 38));
+        jPanel4.add(saveChangesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 250, 47));
 
-        jButton9.setText("Legal information and documentation");
-        jPanel4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 270, -1));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setText("For software support :");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
-
-        jLabel11.setText("girinishan200@gmail.com");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
-
-        jLabel12.setText("9819320395");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/image_logo.png"))); // NOI18N
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 640, 350));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 620, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -362,33 +332,17 @@ public class SettingScreen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton7MouseClicked
+
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
         BillingScreen billingScreen = new BillingScreen();
         billingScreen.setVisible(true);
         this.dispose();
-// TODO add your handling code here:
     }//GEN-LAST:event_jButton6MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        MenuScreen menuScreen = new MenuScreen();
-        menuScreen.hotelNameLabel.setText(hotelNameField.getText());
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void uploadMenueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadMenueButtonActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fileChooser.setMultiSelectionEnabled(false); // Allow only single file selection
-
-        int result = fileChooser.showOpenDialog(null);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            String imagePath = selectedFile.getAbsolutePath();
-            saveImagePathToDatabase(imagePath, 2);
-        }
-    }
 
     private void saveImagePathToDatabase(String imagePath, int imageId) {
         try {
@@ -402,16 +356,29 @@ public class SettingScreen extends javax.swing.JFrame {
             // Handle success or display a message
         } catch (ClassNotFoundException | SQLException e) {
             // Handle database errors
-            
+
         }
 
-    }//GEN-LAST:event_uploadMenueButtonActionPerformed
-
-    private void uploadQrMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadQrMenuButtonActionPerformed
+    }
+    private void uploadMenuImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadMenuImageButtonActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fileChooser.setMultiSelectionEnabled(false);
+        fileChooser.setMultiSelectionEnabled(false); // Allow only single file selection
+
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String imagePath = selectedFile.getAbsolutePath();
+            saveImagePathToDatabase(imagePath, 2);
+        }
+    }//GEN-LAST:event_uploadMenuImageButtonActionPerformed
+
+    private void uploadMenuQrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadMenuQrButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setMultiSelectionEnabled(false); // Allow only single file selection
 
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -419,10 +386,9 @@ public class SettingScreen extends javax.swing.JFrame {
             String imagePath = selectedFile.getAbsolutePath();
             saveImagePathToDatabase(imagePath, 1);
         }
+    }//GEN-LAST:event_uploadMenuQrButtonActionPerformed
 
-    }//GEN-LAST:event_uploadQrMenuButtonActionPerformed
-
-    private void changePhonePayQrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePhonePayQrButtonActionPerformed
+    private void uploadPaymentQrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadPaymentQrButtonActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -434,84 +400,84 @@ public class SettingScreen extends javax.swing.JFrame {
             String imagePath = selectedFile.getAbsolutePath();
             saveImagePathToDatabase(imagePath, 3);
         }
+    }//GEN-LAST:event_uploadPaymentQrButtonActionPerformed
 
-    }//GEN-LAST:event_changePhonePayQrButtonActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void saveChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveChangesButtonActionPerformed
         // TODO add your handling code here:
-
-    }
-
-    }//GEN-LAST:event_saveChangesButtonActionPerformed
-
-    private void saveChangesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveChangesButtonMouseClicked
-        // TODO add your handling code here:
         if (newPasswordField.getText().equals("") || oldPasswordField.getText().equals("") || usernameField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "NO field cannot be empty !", "Setting Info", JOptionPane.ERROR_MESSAGE);
-
         } else {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
-                String query = "UPDATE users SET password=?, confirmPassword=? WHERE username = ?";
+                String query = "UPDATE users SET password=?, confirmPassword=? WHERE username=? AND password=?";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, newPasswordField.getText());
-                ps.setString(2, usernameField.getText());
-                ps.setString(3, oldPasswordField.getText());
+                ps.setString(2, newPasswordField.getText()); // Assuming confirmPassword should also be the new password
+                ps.setString(3, usernameField.getText());
+                ps.setString(4, oldPasswordField.getText());
 
-                ResultSet resultSet = ps.executeQuery();
+                int affectedRows = ps.executeUpdate();
 
-                // Move the cursor to the first row
-                if (resultSet.next()) {
-                    // User credentials match
+                if (affectedRows > 0) {
                     JOptionPane.showMessageDialog(null, "Password changed successfully!", "Setting Info", JOptionPane.INFORMATION_MESSAGE);
-
                 } else {
-                    // User credentials didn't match
-                    JOptionPane.showMessageDialog(null, "Error occured", "Setting Info", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Error occurred. User not found or credentials incorrect.", "Setting Info", JOptionPane.ERROR_MESSAGE);
                 }
-                // Close resources
-                resultSet.close();
+
                 ps.close();
                 conn.close();
             } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage(), "Setting Info", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }//GEN-LAST:event_saveChangesButtonMouseClicked
+
+    }//GEN-LAST:event_saveChangesButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SettingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SettingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SettingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SettingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(SettingScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SettingScreen().setVisible(true);
+            }
+        });
     }
-    //</editor-fold>
-
-    //</editor-fold>
-
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(() -> {
-        new SettingScreen().setVisible(true);
-    });
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton changePhonePayQrButton;
-    public javax.swing.JTextField hotelNameField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -536,12 +502,14 @@ public class SettingScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField newPasswordField;
     private javax.swing.JTextField oldPasswordField;
     private javax.swing.JButton saveChangesButton;
-    private javax.swing.JButton uploadMenueButton;
-    private javax.swing.JButton uploadQrMenuButton;
+    private javax.swing.JButton uploadMenuImageButton;
+    private javax.swing.JButton uploadMenuQrButton;
+    private javax.swing.JButton uploadPaymentQrButton;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

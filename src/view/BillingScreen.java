@@ -61,7 +61,8 @@ public class BillingScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 640));
+        setPreferredSize(new java.awt.Dimension(900, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -195,7 +196,7 @@ public class BillingScreen extends javax.swing.JFrame {
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 37, -1));
 
         totalLabel.setText("XXX");
-        jPanel2.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 43, -1));
+        jPanel2.add(totalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 90, -1));
 
         billingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,7 +303,9 @@ public class BillingScreen extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        
+        SettingScreen settingScreen = new SettingScreen();
+        settingScreen.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed

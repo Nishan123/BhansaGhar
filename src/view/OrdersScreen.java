@@ -65,7 +65,8 @@ public class OrdersScreen extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 640));
+        setPreferredSize(new java.awt.Dimension(900, 640));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));

@@ -4,6 +4,8 @@
  */
 package bhansaghar;
 
+import view.SettingScreen;
+
 
 /*
  *
