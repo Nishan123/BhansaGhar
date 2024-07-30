@@ -301,9 +301,7 @@ public class OrdersScreen extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        SettingScreen settingScreen = new SettingScreen();
-        settingScreen.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void removeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeOrderButtonActionPerformed
@@ -431,7 +429,6 @@ public class OrdersScreen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Data loaded successfully!", "Info", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
         }
 
 

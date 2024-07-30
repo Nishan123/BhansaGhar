@@ -4,10 +4,6 @@
  */
 package bhansaghar;
 
-import view.BillingScreen;
-import view.OrdersScreen;
-import view.SignupScreen;
-import view.TableScreen;
 
 /*
  *
@@ -22,14 +18,11 @@ public class BhansaGhar {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        BillingScreen mainFrame = new BillingScreen();
-//        SignupScreen mainFrame = new SignupScreen();
+        SettingScreen settingScreen = new SettingScreen();
 
+        settingScreen.setVisible(true);
+        settingScreen.setDefaultCloseOperation(SettingScreen.EXIT_ON_CLOSE);
 
-mainFrame.setVisible(true);
-        mainFrame.setDefaultCloseOperation(SignupScreen.EXIT_ON_CLOSE);
-      
     }
-    
+
 }

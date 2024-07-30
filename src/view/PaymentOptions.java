@@ -5,6 +5,12 @@
 
 package view;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Nishan Giri
@@ -25,42 +31,89 @@ public class PaymentOptions extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        paymentQr = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        loadPaymentQrButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setMaximumSize(new java.awt.Dimension(600, 400));
+        setMinimumSize(new java.awt.Dimension(600, 400));
+        setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/payment qr.png"))); // NOI18N
+        paymentQr.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        paymentQr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Load QR image.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("Scan to pay");
+
+        loadPaymentQrButton.setText("Load payment QR");
+        loadPaymentQrButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadPaymentQrButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
+                        .addComponent(loadPaymentQrButton)
+                        .addGap(86, 86, 86)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(paymentQr, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(loadPaymentQrButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paymentQr, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loadPaymentQrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadPaymentQrButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+    String query = "SELECT imagePath FROM images WHERE imageId=3";
+    PreparedStatement ps = conn.prepareStatement(query);
+
+    ResultSet rs = ps.executeQuery();
+    if (rs.next()) {
+        String imagePath = rs.getString("imagePath");
+        System.out.println("Image path retrieved: " + imagePath);
+
+        // Using ImageIcon directly with file path
+        javax.swing.ImageIcon icon = new javax.swing.ImageIcon(imagePath);
+
+        if (icon.getImageLoadStatus() == java.awt.MediaTracker.COMPLETE) {
+            // Ensure GUI updates are done on the Event Dispatch Thread (EDT)
+            javax.swing.SwingUtilities.invokeLater(() -> {
+                paymentQr.setIcon(icon);
+            });
+        } else {
+            System.out.println("Image not found at the specified path: " + imagePath);
+        }
+    } else {
+        System.out.println("No image found for the specified imageId.");
+    }
+} catch (ClassNotFoundException | SQLException e) {
+    e.printStackTrace();
+}
+    }//GEN-LAST:event_loadPaymentQrButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,8 +151,9 @@ public class PaymentOptions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton loadPaymentQrButton;
+    private javax.swing.JLabel paymentQr;
     // End of variables declaration//GEN-END:variables
 
 }

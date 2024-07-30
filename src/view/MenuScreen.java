@@ -4,6 +4,13 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
 /**
  *
  * @author Nishan Giri
@@ -40,7 +47,7 @@ public class MenuScreen extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        hotelNameLabel = new javax.swing.JLabel();
         showQr = new javax.swing.JCheckBox();
         menueOptions = new javax.swing.JLabel();
 
@@ -158,21 +165,21 @@ public class MenuScreen extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 624));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel1.setText("Hotel Name");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
+        hotelNameLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        hotelNameLabel.setText("Hotel Name");
+        getContentPane().add(hotelNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
 
-        showQr.setText("Show QR ");
+        showQr.setText("Show Menu QR / Load Image ");
         showQr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showQrActionPerformed(evt);
             }
         });
-        getContentPane().add(showQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+        getContentPane().add(showQr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
 
         menueOptions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menueOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/menue.png"))); // NOI18N
-        getContentPane().add(menueOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+        menueOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/Load Food Menu image.png"))); // NOI18N
+        getContentPane().add(menueOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 500, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,10 +193,10 @@ public class MenuScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-OrdersScreen ordersScreen = new OrdersScreen();
-ordersScreen.setVisible(true);
-this.dispose();
-        
+        OrdersScreen ordersScreen = new OrdersScreen();
+        ordersScreen.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -208,19 +215,49 @@ this.dispose();
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        SettingScreen settingScreen = new SettingScreen();
-        settingScreen.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void showQrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQrActionPerformed
         // TODO add your handling code here:
-        if(showQr.isSelected()){
-            menueOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/demoQr.png")));
-         
-        }else{
-        menueOptions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/menue.png")));
+    try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bhansaghardb", "root", "lamakhu");
+    String query = "SELECT imagePath FROM images WHERE imageId=?";
+    PreparedStatement ps = conn.prepareStatement(query);
+
+    if (showQr.isSelected()) {
+        ps.setInt(1, 1);
+    } else {
+        ps.setInt(1, 2);
+    }
+
+    ResultSet rs = ps.executeQuery();
+    if (rs.next()) {
+        String imagePath = rs.getString("imagePath");
+        System.out.println("Image path retrieved: " + imagePath);
+
+        // Using ImageIcon directly with file path
+        javax.swing.ImageIcon icon = new javax.swing.ImageIcon(imagePath);
+
+        if (icon.getImageLoadStatus() == java.awt.MediaTracker.COMPLETE) {
+            // Ensure GUI updates are done on the Event Dispatch Thread (EDT)
+            javax.swing.SwingUtilities.invokeLater(() -> {
+                menueOptions.setIcon(icon);
+            });
+        } else {
+            System.out.println("Image not found at the specified path: " + imagePath);
         }
+    } else {
+        System.out.println("No image found for the specified imageId.");
+    }
+} catch (ClassNotFoundException | SQLException e) {
+    e.printStackTrace();
+}
+
+
+
+
     }//GEN-LAST:event_showQrActionPerformed
 
     /**
@@ -258,13 +295,13 @@ this.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel hotelNameLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
