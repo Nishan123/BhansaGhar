@@ -215,6 +215,9 @@ public class MenuScreen extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
+        SettingScreen settingScreen = new SettingScreen();
+        settingScreen.setVisible(true);
+        this.dispose();
       
     }//GEN-LAST:event_jButton7MouseClicked
 
