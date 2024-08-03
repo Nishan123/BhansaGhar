@@ -4,6 +4,7 @@
  */
 package bhansaghar;
 
+import view.LoginScreen;
 import view.SettingScreen;
 
 
@@ -20,10 +21,10 @@ public class BhansaGhar {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SettingScreen settingScreen = new SettingScreen();
+        LoginScreen settingScreen = new LoginScreen();
 
         settingScreen.setVisible(true);
-        settingScreen.setDefaultCloseOperation(SettingScreen.EXIT_ON_CLOSE);
+        settingScreen.setDefaultCloseOperation(LoginScreen.EXIT_ON_CLOSE);
 
     }
 
